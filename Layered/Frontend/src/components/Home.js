@@ -29,7 +29,6 @@ class Home extends Component {
     const {services} = this.state 
     return (
     <Layout>
-      { (services) ? (
         <div className="App">
     
             <table className="table">
@@ -50,10 +49,6 @@ class Home extends Component {
               </tbody>
             </table>
         </div>
-        ) : (
-          <div>No Data Found</div>
-        )
-      }
     </Layout>
     )
   }
