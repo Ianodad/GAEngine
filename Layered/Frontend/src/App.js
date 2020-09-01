@@ -11,8 +11,7 @@ class App extends Component {
 				<ToastContainer />
 				<main className="container">
 					<Switch>
-						<Route path="/" component={Home} /> 
-s						<Redirect from="/" exact to="/" />
+						<Route path="/" exact component={Home} /> 
 						<Redirect to="/not-found" />
 					</Switch>{' '}
 				</main>{' '}
