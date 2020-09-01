@@ -4,7 +4,7 @@ import Layout from './Layout';
 
 
 const apiUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:5000/api' : '/api'
-console.log(proces.env.NODE_ENV)
+console.log(process.env.NODE_ENV)
 
 const getServices = () => {
   return http.get(apiUrl + '/services')
