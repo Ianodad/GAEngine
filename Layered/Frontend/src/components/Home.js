@@ -4,6 +4,7 @@ import Layout from './Layout';
 
 
 const apiUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:5000/api' : '/api'
+console.log(proces.env.NODE_ENV)
 
 const getServices = () => {
   return http.get(apiUrl + '/services')
@@ -12,7 +13,7 @@ const getServices = () => {
 
 class Home extends Component {
     state = {
-        services:null
+        services:[]
     };
 
 //   constructor() {
@@ -20,7 +21,7 @@ class Home extends Component {
 //   }
 
   async componentDidMount() {
-    if (this.state.services) {
+    if (this.state.services == []) {
       const { data } = await getServices()
       this.setState({ services:data });
     }
