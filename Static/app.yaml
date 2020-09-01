@@ -1,0 +1,27 @@
+# service: gdp-app-service
+
+runtime: python37
+# instance class: B4
+
+basic_scaling:
+  max_instances: 10
+  idle_timeout: 10m
+
+# automatic_scaling:
+#   min_num_instances: 1
+#   max_instances: 100
+#   target_cpu_utilization: 0.65
+#   max_concurrent_requests: 50
+
+# manual_scaling:
+#   max_instances: 10
+#   instances: 5
+
+handlers:
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
+
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
