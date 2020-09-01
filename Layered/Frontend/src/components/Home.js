@@ -12,7 +12,7 @@ const getServices = () => {
 
 class Home extends Component {
     state = {
-        services:[]
+        services:null
     };
 
 //   constructor() {
@@ -20,8 +20,10 @@ class Home extends Component {
 //   }
 
   async componentDidMount() {
-    const {data } = await getServices()
-    this.setState({ services:data });
+    if (this.state.services) {
+      const { data } = await getServices()
+      this.setState({ services:data });
+    }
   }
 
 
@@ -30,7 +32,6 @@ class Home extends Component {
     return (
     <Layout>
         <div className="App">
-    
             <table className="table">
               <thead>
                 <tr>
@@ -40,12 +41,17 @@ class Home extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.services.map(service => (
+              {
+               services && (
+
+                services.map(service => (
                   <tr key={service.id}>
                     <td>{service.id}</td>
                     <td>{service.name}</td>
                   </tr>
-                ))}
+                ))
+               ) 
+              }
               </tbody>
             </table>
         </div>

@@ -12,9 +12,9 @@ class App extends Component {
 				<main className="container">
 					<Switch>
 						<Route path="/" exact component={Home} /> 
-						<Redirect to="/not-found" />
-					</Switch>{' '}
-				</main>{' '}
+						{/* <Redirect to="/not-found" /> */}
+					</Switch>
+				</main>
 			</React.Fragment>
 		);
 	}
