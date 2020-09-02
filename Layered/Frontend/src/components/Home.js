@@ -23,13 +23,16 @@ class Home extends Component {
 //   }
 
   componentDidMount = async () => {
-    try {
-      const { data } = await getServices()
-      this.setState({ services:data });
-      console.log(data)
-    } catch (error) {
-      console.log(error);
-    }
+    if (!this.state.services) {
+
+      try {
+        const { data } = await getServices()
+        this.setState({ services:data });
+        console.log(data)
+      } catch (error) {
+        console.log(error);
+      }
+    } 
      
   }
 
