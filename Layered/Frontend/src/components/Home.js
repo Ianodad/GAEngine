@@ -7,6 +7,8 @@ const apiUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:5000/a
 console.log(process.env.NODE_ENV)
 
 const getServices = () => {
+  
+  console.log(http.get(apiUrl + '/services'))
   return http.get(apiUrl + '/services')
 }
 
