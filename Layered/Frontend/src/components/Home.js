@@ -23,6 +23,7 @@ class Home extends Component {
 //   }
 
   async componentDidMount() {
+    console.log(apiUrl)
     if (this.state.services == []) {
       const { data } = await getServices()
       this.setState({ services:data });
