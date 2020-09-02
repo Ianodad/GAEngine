@@ -1,7 +1,7 @@
 npm install
 
-npm run build -y
+npm run build 
 
-gcloud app deploy 
+gcloud app deploy
 
 gcloud app browse

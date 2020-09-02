@@ -6,9 +6,9 @@ import Layout from './Layout';
 const apiUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:5000/api' : '/api'
 console.log(process.env.NODE_ENV)
 
-const getServices = () => {
+const getServices = async () => {
   
-  console.log(http.get(apiUrl + '/services'))
+  console.log(await http.get(apiUrl + '/services'))
   return http.get(apiUrl + '/services')
 }
 
@@ -22,7 +22,7 @@ class Home extends Component {
 //     super();
 //   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     try {
       const { data } = await getServices()
       this.setState({ services:data });
@@ -49,15 +49,12 @@ class Home extends Component {
               </thead>
               <tbody>
               {
-               services && (
-
-                services.map(service => (
+               services && services.map(service => (
                   <tr key={service.id}>
                     <td>{service.id}</td>
                     <td>{service.name}</td>
                   </tr>
                 ))
-               ) 
               }
               </tbody>
             </table>
